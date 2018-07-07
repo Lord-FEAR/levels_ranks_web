@@ -55,6 +55,7 @@
 
             <div class="row">
                 <div class="content col-md-12">
+
                     <div class="profile_header_bg_texture">
                         <div class="profile_header_inner">
                             <div class="row">
@@ -131,18 +132,14 @@
 						</div>
 					</div>
 					
-					
 				</div>
-            </div>    
+            </div>
 
-			<?php
+            <?php
                 // Footer
                 include("./includes/footer.php");
             ?>
         </div>
-        <div class="footer-margin"></div>
-        
-
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->

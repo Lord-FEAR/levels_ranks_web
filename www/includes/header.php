@@ -3,35 +3,34 @@
         <div class="header-content">
 
             <span class="pull-right profile-nav">
-                    <?php if(isset($_SESSION['steamid'])): ?>
-                    <?php include_once('./includes/steamauth/userInfo.php'); ?>
-                        <a class="user_name" href="./player.php"><?=$steamprofile['personaname']?></a>
-                        <img class="user_avatar" src="<?=$steamprofile['avatar']?>">
-                    <?php else:     ?>
-                        <a class="user_name" href="./player.php?login" title="Авторизация">Войти</a>
-                    <?php endif;   ?>
+                <?php if(isset($_SESSION['steamid'])): ?>
+                <?php include_once('./includes/steamauth/userInfo.php'); ?>
+                    <a class="user_name" href="./player.php"><?=$steamprofile['personaname']?></a>
+                    <img class="user_avatar" src="<?=$steamprofile['avatar']?>">
+                <?php else:     ?>
+                    <a class="user_name" href="./player.php?login" title="Авторизация">Войти</a>
+                <?php endif;   ?>
             </span>
 
-                <a class="navA" href="./" title="На главную">Главная</a>
+            <a class="navA" href="./" title="На главную">Главная</a>
 
-                <a class="navA" href="./top.php" title="Лучшие игроки">Top</a>
+            <a class="navA" href="./top.php" title="Лучшие игроки">Top</a>
 
-                <?php if(count($config['server'])>1):?>
-                        <div class="dropdown">
-                        <a href="#" class="dropbtn" title="Список серверов">Серверы</a>
-                        <div class="dropdown-content">
-                            <?php for($i = 0; $i < count($config['server']); $i++): ?>
-                                <a href="./top.php?serv=<?=$i?>"><?=$config['server'][$i]['name']?></a>
-                            <?php endfor; ?>
-                        </div>
+            <?php if(count($config['server'])>1):?>
+                    <div class="dropdown">
+                    <a href="#" class="dropbtn" title="Список серверов">Серверы</a>
+                    <div class="dropdown-content">
+                        <?php for($i = 0; $i < count($config['server']); $i++): ?>
+                            <a href="./top.php?serv=<?=$i?>"><?=$config['server'][$i]['name']?></a>
+                        <?php endfor; ?>
                     </div>
-                <?php endif;?>
+                </div>
+            <?php endif;?>
+            <?php if($config['vip_database']['status']) echo '<a class="navA" href="./vip.php" title="Список VIP">VIP</a>'?>
+            <?php if($config['ban_database']['status']) echo '<a class="navA" href="./ban.php" title="Список банов">BANS</a>'?>
+            <a class="navA" href="./search.php" title="Поиск игроков">Поиск</a>
 
-                <?php if($config['vip_database']['status']) echo '<a class="navA" href="./vip.php" title="Список VIP">VIP</a>'?>
-                <?php if($config['ban_database']['status']) echo '<a class="navA" href="./ban.php" title="Список банов">BANS</a>'?>
-                <a class="navA" href="./search.php" title="Поиск игроков">Поиск</a>
-
-        </div>         
+        </div>
     </div>
 </div>
 <?php

@@ -88,7 +88,6 @@
                 include("./includes/footer.php");
             ?>
         </div>
-        <div class="footer-margin"></div>      
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="./includes/js/bootstrap.min.js"></script>
