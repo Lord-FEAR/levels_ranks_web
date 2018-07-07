@@ -27,8 +27,8 @@
                     </div>
                 <?php endif;?>
 
-                <a class="navA" href="./vip.php" title="Список VIP">VIP</a>
-                <a class="navA" href="./ban.php" title="Список банов">BANS</a>
+                <?php if($config['vip_database']['status']) echo '<a class="navA" href="./vip.php" title="Список VIP">VIP</a>'?>
+                <?php if($config['ban_database']['status']) echo '<a class="navA" href="./ban.php" title="Список банов">BANS</a>'?>
                 <a class="navA" href="./search.php" title="Поиск игроков">Поиск</a>
 
         </div>         

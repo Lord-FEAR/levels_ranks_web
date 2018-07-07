@@ -51,6 +51,8 @@ return array(
     'BOT_INFO'  =>  FALSE,
 
     'vip_database' => array(
+		// включено или выключено
+        'status'    =>  TRUE,
         'host'      =>  'ip',
         'dbName'    =>  'db',
         'login'     =>  'login',
@@ -60,6 +62,8 @@ return array(
     ),
 
     'ban_database' => array(
+		// включено или выключено
+        'status'    =>  TRUE,
         'host'      =>  'ip',
         'dbName'    =>  'db',
         'login'     =>  'login',
