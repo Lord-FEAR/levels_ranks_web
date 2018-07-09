@@ -4,7 +4,7 @@
 define('EMAIL', 'support@EMAIL.ru');
 
 // Steam Web API https://steamcommunity.com/dev/apikey 
-define('STEAM_WEB_API', '*****************************');
+define('STEAM_WEB_API', '*********************************');
 return array(
     // Версия сборки
     'LR_VERS' => '2.0',
@@ -19,7 +19,7 @@ return array(
     'MAIN_PAGE' => 'http://sitename.ru/',
     
     // Название проекта
-    'NAME_PROJ' => 'Название',
+    'NAME_PROJ' => 'Test',
     
     // Записей на страницу
     'RECORD_ON_PAGE' => 50,
@@ -50,26 +50,30 @@ return array(
     // FALSE - не показывать
     'BOT_INFO'  =>  FALSE,
 
+    'menuTop'       => TRUE,
+
+    'admins'        => TRUE,
+
     'vip_database' => array(
-		// включено или выключено
+        // включено или выключено
         'status'    =>  TRUE,
         'host'      =>  'ip',
-        'dbName'    =>  'db',
+        'dbName'    =>  'database',
         'login'     =>  'login',
         'pass'      =>  'pass',
         // Порт базы данных (стандартный порт 3306)
-        'port'      =>  '3306'
+        'port'      =>  '3306',
     ),
 
     'ban_database' => array(
-		// включено или выключено
+        // включено или выключено
         'status'    =>  TRUE,
         'host'      =>  'ip',
-        'dbName'    =>  'db',
+        'dbName'    =>  'database',
         'login'     =>  'login',
         'pass'      =>  'pass',
         // Порт базы данных (стандартный порт 3306)
-        'port'      =>  '3306'
+        'port'      =>  '3306',
     ),
 
 	//steamID64 для лоуступа к админке
@@ -89,10 +93,26 @@ return array(
 			// Порт базы данных (стандартный порт 3306)
             'port'      =>  '3306',
 
-            //Настройки игрового сервера
-            'name'      =>  'отображаемое имя',
+            //Config game server
+            'name'      =>  'server name',
             'gameHost'  =>  'ip',
             'gamePort'  =>  27015
+            'viewPlayers'   =>  TRUE 
+        ),
+        array(
+            //Настройки базы данных
+            'host'      =>  'ip',
+            'dbName'    =>  'db',
+            'login'     =>  'login',
+            'pass'      =>  'pass',
+			// Порт базы данных (стандартный порт 3306)
+            'port'      =>  '3306',
+
+            //Config game server
+            'name'      =>  'server name',
+            'gameHost'  =>  'ip',
+            'gamePort'  =>  27016
+            'viewPlayers'   =>  TRUE 
         ),
 		// если 2 сервера
 		/**
