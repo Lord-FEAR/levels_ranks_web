@@ -46,7 +46,7 @@
                                     <td><img id="<?=steam32to64($data[$i]["authid"])?>" src="<?=checkAva(strval(steam32to64($data[$i]["authid"])))?>" width="32px" height="32px"></td>
                                     <td><a href="player.php?sid=<?=$data[$i]["authid"]?>"><?=$data[$i]["name"]?></a></td>
                                     <td><?=$data[$i]['reason']?></td>
-                                    <td><?=$data[$i]['created']?></td>
+                                    <td><?=date("d.m.y", $data[$i]['created'])?></td>
                                     <td>
                                         <?php
                                             if(!$data[$i]['length']){
