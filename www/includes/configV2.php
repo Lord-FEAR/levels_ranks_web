@@ -96,8 +96,8 @@ return array(
             //Config game server
             'name'      =>  'server name',
             'gameHost'  =>  'ip',
-            'gamePort'  =>  27015
-            'viewPlayers'   =>  TRUE 
+            'gamePort'  =>  27015,
+            'viewPlayers'   =>  TRUE,
         ),
         array(
             //Настройки базы данных
@@ -111,8 +111,8 @@ return array(
             //Config game server
             'name'      =>  'server name',
             'gameHost'  =>  'ip',
-            'gamePort'  =>  27016
-            'viewPlayers'   =>  TRUE 
+            'gamePort'  =>  27016,
+            'viewPlayers'   =>  TRUE, 
         ),
 		// если 2 сервера
 		/**
