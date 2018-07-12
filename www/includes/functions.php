@@ -19,6 +19,21 @@
         return $steam_cid;
     }
 
+    function SteamID3SteamID64($steamid3) {
+        $args = explode(":", $steamid3);
+        $accountid = substr($args[2], 0, -1);
+    
+        if (($accountid % 2) == 0) {
+            $Y = 0;
+            $Z = ($accountid / 2);
+        } else {
+            $Y = 1;
+            $Z = (($accountid - 1) / 2);
+        }
+    
+        return "7656119".(($Z * 2) + (7960265728 + $Y));
+    }
+
     function checkAva($id){
         $cacheTime = (24*60*60);
         $cacheFile = "./cache/$id.jpg.cache";
@@ -30,9 +45,9 @@
                 exit;
             }            
         }else{
-            return "./includes/img/loading.gif";
-            header('content-type: image/gif');
-            echo file_get_contents("./img/loading.gif");
+            return "./includes/img/noname40.png";
+            header('content-type: image/png');
+            echo file_get_contents("./img/noname40.png");
             exit;
         }
     }
