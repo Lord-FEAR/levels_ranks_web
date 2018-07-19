@@ -50,12 +50,12 @@
                                             <td><a href="player.php?sid=<?=$data[$index]["steam"]?>"><?=$data[$index]["name"]?></a></td>
                                             <td><?=$data[$index]["value"]?></td>
                                             <td><?=$data[$index]["rank"]?></td>
-                                            <td><?=stristr($data[$index]["kills"], ';',true)?></td>
+                                            <td><?=$data[$index]["kills"]?></td>
                                             <td><?=$data[$index]["deaths"]?></td>
-                                            <td><?php if($data[$index]["deaths"]!=0) { echo round(stristr($data[$index]["kills"], ';',true)/$data[$index]["deaths"],2); }else{ echo 0; } ?></td>
+                                            <td><?php if($data[$index]["deaths"]!=0) { echo round($data[$index]["kills"]/$data[$index]["deaths"],2); }else{ echo 0; } ?></td>
                                             <td><?=$data[$index]["shoots"]?></td>
-                                            <td><?=stristr($data[$index]["hits"], ';', TRUE)?></td>
-                                            <td><?php if($data[$index]["shoots"]!=0) { echo round(stristr($data[$index]["hits"], ';', TRUE)*100/$data[$index]["shoots"]); }else{ echo 0; } ?>%</td>
+                                            <td><?=$data[$index]["hits_all"]?></td>
+                                            <td><?php if($data[$index]["shoots"]!=0) { echo round($data[$index]["hits_all"]*100/$data[$index]["shoots"]); }else{ echo 0; } ?>%</td>
                                             <td><?=date("d.m.y", $data[$index]["lastconnect"])?></td>
                                         </tr>
                                     <?php endfor; ?>                        
