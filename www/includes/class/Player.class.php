@@ -4,7 +4,7 @@
  */
 
 class Player {
-    public $steamid, $name, $value, $lvl, $kills, $death, $kd, $shot, $hit, $acc, $inhead, $help, $lastgame, $maxLvl, $reqursia;
+    public $steamid, $name, $value, $lvl, $kills, $death, $kd, $shot, $hit, $acc, $inhead, $help, $lastgame, $maxLvl;
 
     public function __construct($steamid){
         if(preg_match("/STEAM/", $steamid)){
@@ -58,55 +58,27 @@ class Player {
     function getStat($server) {
     $pdo = $this->connect($server);
     $stmt = $pdo->prepare("SELECT * FROM lvl_base WHERE steam = :steam");
-	$stmt->execute(array(':steam' => $this->steamid));
-    unset($pdo);
+	$stmt->execute(array(':steam' => $this->steamid));	
+	unset($pdo);
 	$stat = $stmt->fetch();
         if(!$stat){
-            $pdo = $this->connect($server);
-            $stmt = $pdo->prepare("SELECT * FROM lvl_base WHERE steam = :steam");
-            $stmt->execute(array(':steam' => substr_replace($this->steamid, "STEAM_0", 0, 7)));
-            unset($pdo);
-            $stat = $stmt->fetch();
-            if(!$stat){
-                $this->name = NULL;
-                $this->value = NULL;
-                $this->lvl = NULL;
-                $this->kills = NULL;
-                $this->death = NULL;
-                $this->kd = NULL;
-                $this->shot = NULL;
-                $this->hit = NULL;
-                $this->acc = NULL;
-                $this->inhead = NULL;
-                $this->help = NULL;
-                $this->lastgame = NULL;
-            }else{
-                $this->name = $stat['name'];
-                $this->value = $stat['value'];
-                $this->lvl = $stat['rank'];
-                $this->kills = $stat['kills'];
-                $this->death = $stat['deaths'];
-                if($this->death!=0){
-                    $this->kd = round($this->kills / $this->death, 2);
-                }else{
-                    $this->kd = $this->kills;
-                }
-                $this->shot = $stat['shoots'];
-                $this->hit = $stat['hits_all'];
-                if($this->shot!=0){
-                    $this->acc = round($this->hit * 100 / $this->shot);
-                }else{
-                    $this->acc = 0;
-                }
-                $this->inhead = $stat['headshots'];
-                $this->help = $stat['assists'];
-                $this->lastgame = $stat['lastconnect']; 
-            }
+            $this->name = NULL;
+            $this->value = NULL;
+            $this->lvl = NULL;
+            $this->kills = NULL;
+            $this->death = NULL;
+            $this->kd = NULL;
+            $this->shot = NULL;
+            $this->hit = NULL;
+            $this->acc = NULL;
+            $this->inhead = NULL;
+            $this->help = NULL;
+            $this->lastgame = NULL;
         }else{
             $this->name = $stat['name'];
             $this->value = $stat['value'];
             $this->lvl = $stat['rank'];
-            $this->kills = $stat['kills'];
+            $this->kills = stristr($stat['kills'], ';', TRUE);
             $this->death = $stat['deaths'];
             if($this->death!=0){
                 $this->kd = round($this->kills / $this->death, 2);
@@ -114,16 +86,16 @@ class Player {
                 $this->kd = $this->kills;
             }
             $this->shot = $stat['shoots'];
-            $this->hit = $stat['hits_all'];
+            $this->hit = stristr($stat['hits'], ';', TRUE);
             if($this->shot!=0){
                 $this->acc = round($this->hit * 100 / $this->shot);
             }else{
                 $this->acc = 0;
             }
-            $this->inhead = $stat['headshots'];
+            $this->inhead = stristr($stat['headshots'], ';', TRUE);
             $this->help = $stat['assists'];
             $this->lastgame = $stat['lastconnect']; 
-        }
+        }     
     }
 
     function clearRanks($server){
