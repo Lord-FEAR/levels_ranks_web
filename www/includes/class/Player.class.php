@@ -84,7 +84,7 @@ class Player {
                 $this->name = $stat['name'];
                 $this->value = $stat['value'];
                 $this->lvl = $stat['rank'];
-                $this->kills = $stat['kills'];
+                $this->kills = stristr($stat['kills'], ';', TRUE);
                 $this->death = $stat['deaths'];
                 if($this->death!=0){
                     $this->kd = round($this->kills / $this->death, 2);
@@ -92,13 +92,13 @@ class Player {
                     $this->kd = $this->kills;
                 }
                 $this->shot = $stat['shoots'];
-                $this->hit = $stat['hits_all'];
+                $this->hit = stristr($stat['hits'], ';', TRUE);
                 if($this->shot!=0){
                     $this->acc = round($this->hit * 100 / $this->shot);
                 }else{
                     $this->acc = 0;
                 }
-                $this->inhead = $stat['headshots'];
+                $this->inhead = stristr($stat['headshots'], ';', TRUE);
                 $this->help = $stat['assists'];
                 $this->lastgame = $stat['lastconnect']; 
             }
@@ -106,7 +106,7 @@ class Player {
             $this->name = $stat['name'];
             $this->value = $stat['value'];
             $this->lvl = $stat['rank'];
-            $this->kills = $stat['kills'];
+            $this->kills = stristr($stat['kills'], ';', TRUE);
             $this->death = $stat['deaths'];
             if($this->death!=0){
                 $this->kd = round($this->kills / $this->death, 2);
@@ -114,13 +114,13 @@ class Player {
                 $this->kd = $this->kills;
             }
             $this->shot = $stat['shoots'];
-            $this->hit = $stat['hits_all'];
+            $this->hit = stristr($stat['hits'], ';', TRUE);
             if($this->shot!=0){
                 $this->acc = round($this->hit * 100 / $this->shot);
             }else{
                 $this->acc = 0;
             }
-            $this->inhead = $stat['headshots'];
+            $this->inhead = stristr($stat['headshots'], ';', TRUE);
             $this->help = $stat['assists'];
             $this->lastgame = $stat['lastconnect']; 
         }
