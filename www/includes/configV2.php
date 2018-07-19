@@ -7,7 +7,7 @@ define('EMAIL', 'support@EMAIL.ru');
 define('STEAM_WEB_API', '*********************************');
 return array(
     // Версия сборки
-    'LR_VERS' => '2.0',
+    'LR_VERS' => '2.0.3',
     
     // TRUE or FALSE
     'DEBUG' => 'FALSE',
