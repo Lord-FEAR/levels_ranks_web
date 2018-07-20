@@ -1,6 +1,6 @@
 Требования для работы:
 	PHP 5.4 и выше
-	Плагин [Levels Ranks] Core 2.1.1 и выше с подключенной MySQL базой
+	Плагин [Levels Ranks] Core 2.4.0 и выше с подключенной MySQL базой
 	Steam API key https://steamcommunity.com/dev/apikey
 	
 Установка:
